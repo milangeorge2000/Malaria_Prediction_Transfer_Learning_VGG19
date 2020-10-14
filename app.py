@@ -47,7 +47,6 @@ def upload():
         img = np.asarray(img) ##converting to an array
         img = img / 255 ##scaling by doing a division of 255
         img = np.expand_dims(img, axis=0) ##expanding the dimensions
-        from keras.models import load_model
         saved_model = load_model("modelv19_malaria.h5") ##loading the model
         output = saved_model.predict(img)
         if output[0][0] > output[0][1]:
